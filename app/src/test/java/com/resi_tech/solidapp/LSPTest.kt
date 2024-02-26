@@ -9,7 +9,7 @@ import com.resi_tech.solidapp.lsp.correct.Square as GoodSquare
 
 class LSPTest {
 
-  fun testBadRectangle(rectangle: BadRectangle) {
+  private fun testBadRectangle(rectangle: BadRectangle) {
     rectangle.b = 10
     rectangle.a = 5
     assert(rectangle.getArea() == 50)
@@ -30,7 +30,7 @@ class LSPTest {
   }
 
   @Test
-  fun `iteration on BadRectangles is impossible`() {
+  fun `iteration on BadRectangles might bring unexpected behaviour`() {
     val rectangles = arrayListOf<BadRectangle>(BadRectangle().apply { a = 10; b = 4 }, BadSquare().apply { a = 10 })
     for (rectangle in rectangles) {
       try {
@@ -41,7 +41,7 @@ class LSPTest {
     }
   }
 
-  fun testShape(shape: Shape, expectedArea: Int) {
+  private fun testShape(shape: Shape, expectedArea: Int) {
     assert(shape.getArea() == expectedArea)
   }
 
