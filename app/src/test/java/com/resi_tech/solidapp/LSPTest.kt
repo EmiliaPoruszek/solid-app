@@ -4,8 +4,8 @@ import com.resi_tech.solidapp.lsp.incorrect.Rectangle as BadRectangle
 import com.resi_tech.solidapp.lsp.correct.Rectangle as GoodRectangle
 import org.junit.Test
 import java.lang.AssertionError
-import com.resi_tech.solidapp.lsp.incorrect.Squere as BadSquere
-import com.resi_tech.solidapp.lsp.correct.Squere as GoodSquere
+import com.resi_tech.solidapp.lsp.incorrect.Square as BadSquare
+import com.resi_tech.solidapp.lsp.correct.Square as GoodSquare
 
 class LSPTest {
 
@@ -20,7 +20,7 @@ class LSPTest {
     val rectangle = BadRectangle()
     testBadRectangle(rectangle) // this is expected behavior of the function
 
-    val squere = BadSquere()
+    val squere = BadSquare()
     try {
       testBadRectangle(squere) // but the squere can't be used in this function as expected
       assert(false)
@@ -31,7 +31,7 @@ class LSPTest {
 
   @Test
   fun `iteration on BadRectangles is impossible`() {
-    val rectangles = arrayListOf<BadRectangle>(BadRectangle().apply { a = 10; b = 4 }, BadSquere().apply { a = 10 })
+    val rectangles = arrayListOf<BadRectangle>(BadRectangle().apply { a = 10; b = 4 }, BadSquare().apply { a = 10 })
     for (rectangle in rectangles) {
       try {
         testBadRectangle(rectangle)
@@ -50,13 +50,13 @@ class LSPTest {
     val rectangle = GoodRectangle(5, 10)
     testShape(rectangle, 50) // this is expected behavior of the function
 
-    val squere = GoodSquere(5)
+    val squere = GoodSquare(5)
     testShape(squere, 25) // this is expected behavior of the function
   }
 
   @Test
   fun `iteration on different shapes should be possible`() {
-    val shapes = arrayListOf<Shape>(GoodRectangle(5, 10), GoodSquere(5))
+    val shapes = arrayListOf<Shape>(GoodRectangle(5, 10), GoodSquare(5))
     val expectedAreas = arrayListOf(50, 25)
     for (shape in shapes) {
       assert(expectedAreas[shapes.indexOf(shape)] == shape.getArea())
