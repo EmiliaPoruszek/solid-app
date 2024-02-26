@@ -3,7 +3,7 @@ package com.resi_tech.solidapp
 import com.resi_tech.solidapp.isp.correct.Flyable
 import com.resi_tech.solidapp.isp.correct.Swimable
 import com.resi_tech.solidapp.isp.correct.Walkable
-import com.resi_tech.solidapp.isp.incorrect.Animatable
+import com.resi_tech.solidapp.isp.incorrect.Movable
 import com.resi_tech.solidapp.isp.incorrect.Duck as BadDuck
 import com.resi_tech.solidapp.isp.correct.Duck as GoodDuck
 
@@ -17,7 +17,7 @@ import org.junit.Test
 
 class ISPTest {
 
-  private fun testAnimatable(animal: Animatable) {
+  private fun testAnimatable(animal: Movable) {
     // after reading Animatable implementation programmer might expect all of this to work fine
     animal.walk()
     animal.fly()
@@ -25,7 +25,7 @@ class ISPTest {
   }
 
   @Test
-  fun `iteration on Animatable objects might bring unexpected errors`() {
+  fun `iteration on Movable objects might bring unexpected errors`() {
     val duck = BadDuck()
     val dog = BadDog()
     val pig = BadPig()

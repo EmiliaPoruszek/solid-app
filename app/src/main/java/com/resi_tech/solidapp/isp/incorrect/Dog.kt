@@ -1,6 +1,6 @@
 package com.resi_tech.solidapp.isp.incorrect
 
-class Dog: Animatable {
+class Dog: Movable {
   override fun fly() {
     // This is unnecessary code, which requires from the interface user (programmer) to handle it
     throw UnsupportedOperationException("Dog can't fly")

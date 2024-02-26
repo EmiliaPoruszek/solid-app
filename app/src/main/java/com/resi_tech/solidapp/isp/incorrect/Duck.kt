@@ -1,6 +1,6 @@
 package com.resi_tech.solidapp.isp.incorrect
 
-class Duck: Animatable {
+class Duck: Movable {
   override fun fly() {
     println("Duck flies")
   }
